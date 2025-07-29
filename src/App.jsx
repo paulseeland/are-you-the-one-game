@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Tabs from './components/Tabs';
-import PlayerInput from './components/PlayerInput';
+import PlayerForm from './components/PlayerForm';
 import MatchPanel from './components/MatchPanel';
 import ResultDisplay from './components/ResultDisplay';
 import MatchingBox from './components/MatchingBox';
@@ -9,7 +9,7 @@ function App() {
   const [players, setPlayers] = useState([]);
   const [correctPairs, setCorrectPairs] = useState([]);
   const [matchingResults, setMatchingResults] = useState(0);
-  const [activeTab, setActiveTab] = useState('playerInput');
+  const [activeTab, setActiveTab] = useState('playerForm');
 
   const handlePlayerSubmit = (submittedPlayers) => {
     setPlayers(submittedPlayers);
@@ -50,7 +50,7 @@ function App() {
         activeTab={activeTab}
         onTabChange={setActiveTab}
         tabs={[
-          { key: 'playerInput', label: 'Spieler' },
+          { key: 'playerForm', label: 'Spieler' },
           { key: 'matchingNight', label: 'Matching Night' },
           { key: 'results', label: 'Results' },
           { key: 'matchingBox', label: 'Matching Box' }
@@ -58,7 +58,7 @@ function App() {
       />
 
       <div className="tab-content">
-        {activeTab === 'playerInput' && (
+        {activeTab === 'playerForm' && (
           <PlayerInput onSubmit={handlePlayerSubmit} />
         )}
 
