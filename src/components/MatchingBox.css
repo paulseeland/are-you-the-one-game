@@ -1,0 +1,31 @@
+.matching-box {
+  padding: 1rem;
+}
+
+.selectors {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.heart-animation {
+  font-size: 2rem;
+  animation: pop 0.5s ease-in-out;
+  margin: 10px 0;
+}
+
+.heart-animation.broken {
+  color: red;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
