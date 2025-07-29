@@ -21,7 +21,7 @@ function App() {
   
   const handlePlayerSubmit = (submittedPlayers) => {
     setPlayers(submittedPlayers);
-    setActiveTab('matchingNight');
+    setActiveTab('match');
   };
 
   const handleMatchingSubmit = (pairs) => {
