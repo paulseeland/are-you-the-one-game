@@ -73,7 +73,11 @@ function App() {
         )}
 
         {activeTab === 'matchingBox' && (
-          <MatchingBox players={players} correctPairs={correctPairs} />
+          <MatchingBox
+            malePlayers={players.filter(p => p.gender === 'male').map(p => p.name)}
+            femalePlayers={players.filter(p => p.gender === 'female').map(p => p.name)}
+            matches={correctPairs}
+            />
         )}
       </div>
     </div>
