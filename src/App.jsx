@@ -11,6 +11,10 @@ function App() {
   const [matchingResults, setMatchingResults] = useState(0);
   const [activeTab, setActiveTab] = useState('playerForm');
 
+  const addPlayer = (name, gender) => {
+    setPlayers(prev => [...prev, { name, gender }]);
+  };
+
   const handlePlayerSubmit = (submittedPlayers) => {
     setPlayers(submittedPlayers);
     setActiveTab('matchingNight');
@@ -59,7 +63,11 @@ function App() {
 
       <div className="tab-content">
         {activeTab === 'playerForm' && (
-          <PlayerForm onSubmit={handlePlayerSubmit} />
+          <PlayerForm 
+            players={players}
+            addPlayer={addPlayer}
+            satrtGame={startGame}
+          />
         )}
 
         {activeTab === 'matchingNight' && (
