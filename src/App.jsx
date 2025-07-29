@@ -3,7 +3,7 @@ import './App.css';
 import Tabs from './components/Tabs';
 import PlayerInput from './components/PlayerInput';
 import MatchPanel from './components/MatchPanel';
-import ResultPanel from './components/ResultPanel';
+import ResultDisplay from './components/ResultDisplay';
 import MatchingBox from './components/MatchingBox';
 
 function App() {
