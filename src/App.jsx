@@ -11,6 +11,7 @@ function App() {
   const [matchingResults, setMatchingResults] = useState(0);
   const [activeTab, setActiveTab] = useState('playerForm');
   const [gameStarted, setGameStarted] = useState(false);
+  const [guesses, setGuesses] = useState([]);
 
   const addPlayer = (name, gender) => {
     setPlayers(prev => [...prev, { name, gender }]);
@@ -82,7 +83,7 @@ function App() {
             femalePlayers={players.filter(p => p.gender === 'female').map(p => p.name)}
             matches={correctPairs}
             guesses={guesses}
-            addGues={addGuess}
+            addGuess={addGuess}
             />
         )}
       </div>
