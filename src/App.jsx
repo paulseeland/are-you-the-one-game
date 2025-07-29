@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PlayerForm from './components/PlayerForm';
 import MatchPanel from './components/MatchPanel';
 import ResultDisplay from './components/ResultDisplay';
+import MatchingBox from './components/MatchingBox';
 import Tabs from './components/Tabs';
 import './styles.css';
 
