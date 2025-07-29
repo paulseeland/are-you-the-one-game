@@ -44,7 +44,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Are You The One? Spiel</h1>
+      <h1>🌴 Are You The One? Das Spiel 🌴</h1>
 
       <Tabs
         activeTab={activeTab}
