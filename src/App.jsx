@@ -63,10 +63,25 @@ function App() {
     setGuesses(prev => [...prev, guessEntry]);
   };
 
+  const restartGame = () => {
+    setPlayers([]);
+    setCorrectPairs([]);
+    setMatchingResults(0);
+    setActiveTab('playerForm');
+    setGameStarted(false);
+    setGuesses([]);
+  };
+  
   return (
     <div className="App">
       <h1>🌴 Are You The One? Das Spiel 🌴</h1>
 
+      {gameStarted && (
+        <button onClick={restartGame} style={{ marginBottom: '1rem' }}>
+          Spiel neu starten
+        </button>
+      )}
+      
       <Tabs
         current={activeTab}
         setCurrent={setActiveTab}
