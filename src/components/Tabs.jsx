@@ -4,12 +4,12 @@ export default function Tabs({ current, setCurrent, available }) {
   const tabs = [
     { key: 'setup', label: '🧑‍🤝‍🧑 Teilnehmer' },
     { key: 'match', label: '🎮 Matching Night' },
-    { key: 'lights', label: '💡 Scheinwerfer' },
+    { key: 'lights', label: '💡 Result' },
     { key: 'check', label: '🔍 Einzelprüfung' },
   ];
 
   return (
-    <div>
+    <div className="tabs-container">
       {tabs.map(tab => (
         <button
           key={tab.key}
