@@ -20,7 +20,7 @@ export default function MatchPanel({ players, onSubmit, setCurrentTab }) {
     if (pairs.length === males.length) {
       onSubmit(pairs);
       setPairs([]);
-      setCurrentTab('lights');
+      setCurrentTab('results');
     } else {
       alert(`Bitte ${males.length} Paare eingeben.`);
     }
