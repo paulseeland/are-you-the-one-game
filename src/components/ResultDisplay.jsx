@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './ResultDisplay.css';
 
-export default function ResultDisplay({ result }) {
+export default function ResultDisplay({ correctCount }) {
   const [lightsOn, setLightsOn] = useState(0);
 
   useEffect(() => {
@@ -15,9 +15,9 @@ export default function ResultDisplay({ result }) {
         });
       }, 500);
     }
-  }, [result]);
+  }, [correctCount]);
 
-  if (result === null) {
+  if (correctCount === null) {
     return <p>Bitte Matching Night durchführen, um Ergebnisse zu sehen.</p>;
   }
 
@@ -29,9 +29,9 @@ export default function ResultDisplay({ result }) {
           <div key={i} className={`spotlight ${i < lightsOn ? 'on' : ''}`}></div>
         ))}
       </div>
-      {lightsOn === result && (
+      {lightsOn === correctCount && (
         <p className="result-text">
-          Es gibt <strong>{result}</strong> korrekte Paar{result === 1 ? '' : 'e'}!
+          Es gibt <strong>{correctCount}</strong> korrekte Paar{correctCount === 1 ? '' : 'e'}!
         </p>
       )}
     </div>
