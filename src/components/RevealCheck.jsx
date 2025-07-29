@@ -31,7 +31,7 @@ export default function RevealCheck({ players, onCheck, result }) {
         ))}
       </select>
 
-      <button onClick={handleCheck}>🔍 Überprüfen</button>
+      <button className="neon-button primary" onClick={handleCheck}>🔍 Überprüfen</button>
 
       {checked && (
         <div className={`heart ${result ? '' : 'broken'}`}>
