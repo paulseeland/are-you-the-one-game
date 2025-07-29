@@ -98,7 +98,7 @@ function App() {
         )}
 
         {activeTab === 'matchingNight' && (
-          <MatchPanel players={players} onSubmit={handleMatchingSubmit} />
+          <MatchPanel players={players} onSubmit={handleMatchingSubmit} setCurrentTab={setActiveTab} />
         )}
 
         {activeTab === 'results' && (
