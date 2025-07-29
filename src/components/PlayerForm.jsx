@@ -35,7 +35,7 @@ export default function PlayerForm({ players, addPlayer, startGame }) {
       </ul>
 
       <br />
-      <button onClick={startGame} disabled={!ready}>🎲 Spiel starten</button>
+      <button className="neon-button primary" onClick={startGame} disabled={!ready}>🎲 Spiel starten</button>
     </div>
   );
 }
