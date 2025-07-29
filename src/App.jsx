@@ -45,6 +45,10 @@ function App() {
     }, 0);
   };
 
+  const addGuess = (guessEntry) => {
+    setGuesses(prev => [...prev, guessEntry]);
+  };
+
   return (
     <div className="App">
       <h1>🌴 Are You The One? Das Spiel 🌴</h1>
