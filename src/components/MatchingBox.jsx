@@ -20,9 +20,14 @@ const MatchingBox = ({ malePlayers, femalePlayers, matches }) => {
       correct: isMatch,
     };
 
-    setGuesses([...guesses, guessEntry]);
+
+    addGuess(guessEntry); // Nutzt die Prop-Funktion aus App.jsx
     setFeedback(isMatch ? "correct" : "wrong");
     setTimeout(() => setFeedback(null), 2000);
+
+    // Optional: Auswahl zurücksetzen
+    setSelectedMale("");
+    setSelectedFemale("");
   };
 
   return (
