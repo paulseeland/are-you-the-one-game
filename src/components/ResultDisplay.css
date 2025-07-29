@@ -1,0 +1,32 @@
+.result-display {
+  text-align: center;
+  padding: 20px;
+}
+
+.spotlight-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.spotlight {
+  width: 40px;
+  height: 40px;
+  background-color: #444;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  transition: background-color 0.4s, box-shadow 0.4s;
+}
+
+.spotlight.on {
+  background-color: gold;
+  box-shadow: 0 0 15px 5px gold;
+}
+
+.result-text {
+  font-size: 1.3rem;
+  margin-top: 20px;
+  color: #ffddff;
+}
