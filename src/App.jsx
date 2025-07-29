@@ -81,6 +81,8 @@ function App() {
             malePlayers={players.filter(p => p.gender === 'male').map(p => p.name)}
             femalePlayers={players.filter(p => p.gender === 'female').map(p => p.name)}
             matches={correctPairs}
+            guesses={guesses}
+            addGues={addGuess}
             />
         )}
       </div>
