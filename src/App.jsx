@@ -1,44 +1,52 @@
 import React, { useState } from 'react';
-import PlayerInput from './components/PlayerInput';
-import TruthBooth from './components/TruthBooth';
+import PlayerForm from './components/PlayerForm';
 import MatchPanel from './components/MatchPanel';
 import ResultDisplay from './components/ResultDisplay';
+import Tabs from './components/Tabs';
+import './styles.css';
 
-import './App.css';
-
-function App() {
+export default function App() {
   const [players, setPlayers] = useState([]);
   const [perfectMatches, setPerfectMatches] = useState([]);
-  const [currentTab, setCurrentTab] = useState('input');
+  const [currentTab, setCurrentTab] = useState('setup');
   const [matchingNightResult, setMatchingNightResult] = useState(null);
 
-  const handleAddPlayer = (player) => {
-    setPlayers(prev => [...prev, player]);
+  const addPlayer = (name, gender) => {
+    setPlayers(prev => [...prev, { name, gender }]);
   };
 
-  const handleTruthBoothResult = (male, female, isMatch) => {
-    if (isMatch) {
-      setPerfectMatches(prev => [...prev, { male, female }]);
-    }
-  };
-
-  const handleMatchingNight = (submittedPairs) => {
-    const correctPairs = submittedPairs.filter(pair =>
-      perfectMatches.some(
-        match => match.male === pair.male && match.female === pair.female
+  const handlePairsSubmit = (pairs) => {
+    const count = pairs.filter(p =>
+      perfectMatches.some(m =>
+        m.male === p.male && m.female === p.female
       )
     ).length;
-
-    setMatchingNightResult(correctPairs);
-
-    // 🔁 Tab automatisch wechseln
+    setMatchingNightResult(count);
     setCurrentTab('lights');
   };
 
   return (
-    <div className="app-container">
-      <h1>Are You The One? - Spiel</h1>
-      <div className="tab-container">
-        <div className="tabs">
-          <button className={currentTab === 'input' ? 'active' : ''} onClick={() => setCurrentTab('input')}>👥 Spieler</button>
-          <button className={currentTab === 'booth' ? 'active' : ''} onClick={() => setCurrentTab('booth')}>📸 Truth Boo
+    <div className="app">
+      <h1>🌴 Are You The One? – Das Spiel</h1>
+      <Tabs
+        current={currentTab}
+        setCurrent={setCurrentTab}
+        available={players.length > 1}
+      />
+
+      {currentTab === 'setup' && (
+        <PlayerForm players={players} addPlayer={addPlayer} />
+      )}
+      {currentTab === 'match' && (
+        <MatchPanel
+          players={players}
+          onSubmit={handlePairsSubmit}
+          setCurrentTab={setCurrentTab}
+        />
+      )}
+      {currentTab === 'lights' && (
+        <ResultDisplay result={matchingNightResult} />
+      )}
+    </div>
+  );
+}
