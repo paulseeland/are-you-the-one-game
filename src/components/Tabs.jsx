@@ -16,7 +16,7 @@ export default function Tabs({ current, setCurrent, available }) {
           key={tab.key}
           className={`tab-button ${current === tab.key ? 'active' : ''}`}
           onClick={() => setCurrent(tab.key)}
-          disabled={!available && tab.key === 'match'}
+          disabled={!available && tab.key !== 'playerForm'} // Nur 'playerForm' ist immer aktiv
         >
           {tab.label}
         </button>
