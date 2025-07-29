@@ -1,0 +1,18 @@
+.match-panel {
+  max-width: 360px;
+  margin: auto;
+  padding: 20px;
+}
+
+.dropdown-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.match-panel select {
+  padding: 10px;
+  background: #333;
+  color: #fff;
+}
