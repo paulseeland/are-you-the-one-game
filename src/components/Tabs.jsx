@@ -6,6 +6,7 @@ export default function Tabs({ current, setCurrent, available }) {
     { key: 'setup', label: '🧑‍🤝‍🧑 Teilnehmer' },
     { key: 'match', label: '🎯 Matching Night' },
     { key: 'lights', label: '💡 Ergebnis' },
+    { key: 'matchingBox', label: '💘 Matching Box' },
   ];
 
   return (
