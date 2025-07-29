@@ -60,7 +60,7 @@ const MatchingBox = ({ malePlayers = [], femalePlayers = [], matches = [], guess
       <ul>
         {guesses.map((guess, index) => (
           <li key={index}>
-            {guess.male} & 💍 {guess.female} – {guess.correct ? "✅" : "❌"}
+            {guess.male} & {guess.female} – {guess.correct ? "✅" : "❌"}
           </li>
         ))}
       </ul>
