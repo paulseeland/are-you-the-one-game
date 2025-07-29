@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import './MatchPanel.css';
 
-export default function MatchPanel({ players, onSubmit }) {
+export default function MatchPanel({ players, onSubmit, setCurrentTab }) {
   const males = players.filter(p => p.gender === 'male');
   const females = players.filter(p => p.gender === 'female');
   const [pairs, setPairs] = useState([]);
-
   const [selectedMale, setSelectedMale] = useState('');
   const [selectedFemale, setSelectedFemale] = useState('');
 
@@ -20,16 +20,17 @@ export default function MatchPanel({ players, onSubmit }) {
     if (pairs.length === males.length) {
       onSubmit(pairs);
       setPairs([]);
+      setCurrentTab('lights'); // 👉 Wechsel zu "Result"
     } else {
       alert(`Bitte ${males.length} Paare eingeben.`);
     }
   };
 
   return (
-    <div>
-      <h2>Matching Night: Paare bilden</h2>
+    <div className="match-panel">
+      <h2>🎯 Matching Night</h2>
 
-      <div>
+      <div className="dropdown-row">
         <select value={selectedMale} onChange={e => setSelectedMale(e.target.value)}>
           <option value="">Mann wählen</option>
           {males.map(m => (
@@ -44,7 +45,7 @@ export default function MatchPanel({ players, onSubmit }) {
           ))}
         </select>
 
-        <button className="neon-button primary" onClick={addPair}>➕ Paar hinzufügen</button>
+        <button onClick={addPair}>➕ Paar hinzufügen</button>
       </div>
 
       <ul>
@@ -53,7 +54,9 @@ export default function MatchPanel({ players, onSubmit }) {
         ))}
       </ul>
 
-      <button className="neon-button primary" onClick={handleSubmit}>💡 Anzahl korrekter Paare anzeigen</button>
+      <button className="submit-button" onClick={handleSubmit}>
+        💡 Anzahl korrekter Paare anzeigen
+      </button>
     </div>
   );
 }
