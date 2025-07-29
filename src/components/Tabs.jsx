@@ -9,7 +9,7 @@ export default function Tabs({ current, setCurrent, available }) {
   ];
 
   return (
-    <div className="tabs-container">
+    <div className="tabs-vertical">
       {tabs.map(tab => (
         <button
           key={tab.key}
