@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.css';
 import Tabs from './components/Tabs';
 import PlayerInput from './components/PlayerInput';
 import MatchPanel from './components/MatchPanel';
