@@ -10,22 +10,18 @@ function App() {
   const [correctPairs, setCorrectPairs] = useState([]);
   const [matchingResults, setMatchingResults] = useState(0);
   const [activeTab, setActiveTab] = useState('playerForm');
+  const [gameStarted, setGameStarted] = useState(false);
 
   const addPlayer = (name, gender) => {
     setPlayers(prev => [...prev, { name, gender }]);
   };
 
   const startGame = () => {
-    setActiveTab('matchingNight');
-  };
-  
-  const handlePlayerSubmit = (submittedPlayers) => {
-    setPlayers(submittedPlayers);
-    setActiveTab('match');
+    setGameStarted(true);
+    setActiveTab('matchingNight'); // Tab wechseln nach Start
   };
 
   const handleMatchingSubmit = (pairs) => {
-    // Zufällige Anzahl korrekter Paare simulieren
     const matches = generateCorrectPairs(players);
     setCorrectPairs(matches);
 
@@ -37,9 +33,8 @@ function App() {
   const generateCorrectPairs = (players) => {
     const males = players.filter(p => p.gender === 'male');
     const females = players.filter(p => p.gender === 'female');
-
     const shuffled = [...females].sort(() => 0.5 - Math.random());
-    return males.map((m, i) => ({ male: m.name, female: shuffled[i].name }));
+    return males.map((m, i) => ({ male: m.name, female: shuffled[i]?.name }));
   };
 
   const countCorrectMatches = (guessPairs, correctPairs) => {
@@ -57,18 +52,12 @@ function App() {
       <Tabs
         current={activeTab}
         setCurrent={setActiveTab}
-        available={players.length >= 4}
-        tabs={[
-          { key: 'playerForm', label: 'Spieler' },
-          { key: 'matchingNight', label: 'Matching Night' },
-          { key: 'results', label: 'Results' },
-          { key: 'matchingBox', label: 'Matching Box' }
-        ]}
+        available={gameStarted}
       />
 
       <div className="tab-content">
         {activeTab === 'playerForm' && (
-          <PlayerForm 
+          <PlayerForm
             players={players}
             addPlayer={addPlayer}
             startGame={startGame}
@@ -80,7 +69,7 @@ function App() {
         )}
 
         {activeTab === 'results' && (
-          <ResultPanel correctCount={matchingResults} />
+          <ResultDisplay correctCount={matchingResults} />
         )}
 
         {activeTab === 'matchingBox' && (
