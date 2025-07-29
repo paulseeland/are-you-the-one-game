@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #1a001a;
+    color: #fff;
+  }
+  
+  .app {
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #ff00aa;
+    text-shadow: 0 0 10px #ff00aa;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background: #ff00aa;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    margin: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 15px #ff00aa;
+  }
+  
+  input, select {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .tab-button {
+    background: #333;
+    margin: 0 5px;
+  }
+  
+  .tab-button.active {
+    background: #00ffff;
+    color: #000;
+    font-weight: bold;
+    box-shadow: 0 0 10px #00ffff;
+  }
+  
+  .heart {
+    font-size: 4rem;
+    animation: pop 0.5s ease;
+  }
+  
+  @keyframes pop {
+    0% { transform: scale(0.5); opacity: 0.3; }
+    100% { transform: scale(1.2); opacity: 1; }
+  }
+  
+  .heart.broken {
+    color: #ff0000;
+    animation: shake 0.5s ease;
+  }
+  
+  @keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
+  }
+  
+  .spotlights {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 2rem;
+  }
+  
+  .spot {
+    width: 30px;
+    height: 30px;
+    background-color: #444;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #000;
+  }
+  
+  .spot.active {
+    background-color: #ff00aa;
+    box-shadow: 0 0 15px #ff00aa;
+  }
+  
