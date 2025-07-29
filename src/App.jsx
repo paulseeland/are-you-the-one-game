@@ -15,6 +15,10 @@ function App() {
     setPlayers(prev => [...prev, { name, gender }]);
   };
 
+  const startGame = () => {
+    setActiveTab('matchingNight');
+  };
+  
   const handlePlayerSubmit = (submittedPlayers) => {
     setPlayers(submittedPlayers);
     setActiveTab('matchingNight');
