@@ -59,7 +59,7 @@ function App() {
 
       <div className="tab-content">
         {activeTab === 'playerForm' && (
-          <PlayerInput onSubmit={handlePlayerSubmit} />
+          <PlayerForm onSubmit={handlePlayerSubmit} />
         )}
 
         {activeTab === 'matchingNight' && (
