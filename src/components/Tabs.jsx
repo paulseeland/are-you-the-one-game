@@ -1,11 +1,11 @@
 import React from 'react';
+import './Tabs.css';
 
 export default function Tabs({ current, setCurrent, available }) {
   const tabs = [
     { key: 'setup', label: '🧑‍🤝‍🧑 Teilnehmer' },
-    { key: 'match', label: '🎮 Matching Night' },
-    { key: 'lights', label: '💡 Result' },
-    { key: 'check', label: '🔍 Einzelprüfung' },
+    { key: 'match', label: '🎯 Matching Night' },
+    { key: 'lights', label: '💡 Ergebnis' },
   ];
 
   return (
@@ -15,7 +15,7 @@ export default function Tabs({ current, setCurrent, available }) {
           key={tab.key}
           className={`tab-button ${current === tab.key ? 'active' : ''}`}
           onClick={() => setCurrent(tab.key)}
-          disabled={!available && tab.key !== 'setup'}
+          disabled={!available && tab.key === 'match'}
         >
           {tab.label}
         </button>
