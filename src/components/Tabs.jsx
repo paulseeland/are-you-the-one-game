@@ -3,9 +3,9 @@ import './Tabs.css';
 
 export default function Tabs({ current, setCurrent, available }) {
   const tabs = [
-    { key: 'setup', label: '🧑‍🤝‍🧑 Teilnehmer' },
-    { key: 'match', label: '🎯 Matching Night' },
-    { key: 'lights', label: '💡 Ergebnis' },
+    { key: 'playerForm', label: '🧑‍🤝‍🧑 Teilnehmer' },
+    { key: 'matchingNight', label: '🎯 Matching Night' },
+    { key: 'results', label: '💡 Ergebnis' },
     { key: 'matchingBox', label: '💘 Matching Box' },
   ];
 
