@@ -1,91 +1,66 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import "./MatchingBox.css";
 
-export default function MatchingBox({ players, correctPairs }) {
-  const males = players.filter(p => p.gender === 'male');
-  const females = players.filter(p => p.gender === 'female');
+const MatchingBox = ({ malePlayers, femalePlayers, matches }) => {
+  const [selectedMale, setSelectedMale] = useState("");
+  const [selectedFemale, setSelectedFemale] = useState("");
+  const [guesses, setGuesses] = useState([]);
+  const [feedback, setFeedback] = useState(null);
 
-  const [selectedMale, setSelectedMale] = useState('');
-  const [selectedFemale, setSelectedFemale] = useState('');
-  const [attempts, setAttempts] = useState([]); // gespeicherte Versuche
-  const [animation, setAnimation] = useState(null); // 'heart' | 'broken' | null
-
-  const checkMatch = () => {
-    if (!selectedMale || !selectedFemale) {
-      alert('Bitte wähle einen Mann und eine Frau aus.');
-      return;
-    }
-
-    const isCorrect = correctPairs.some(
-      p => (p.male === selectedMale && p.female === selectedFemale) ||
-           (p.female === selectedMale && p.male === selectedFemale) // falls vertauscht
+  const handleGuess = () => {
+    const isMatch = matches.some(
+      (pair) =>
+        (pair.male === selectedMale && pair.female === selectedFemale) ||
+        (pair.female === selectedMale && pair.male === selectedFemale)
     );
 
-    const newAttempt = {
+    const guessEntry = {
       male: selectedMale,
       female: selectedFemale,
-      correct: isCorrect,
-      id: Date.now(),
+      correct: isMatch,
     };
 
-    setAttempts(prev => [newAttempt, ...prev]);
-    setAnimation(isCorrect ? 'heart' : 'broken');
-
-    // Animation nach 2 Sekunden zurücksetzen
-    setTimeout(() => setAnimation(null), 2000);
+    setGuesses([...guesses, guessEntry]);
+    setFeedback(isMatch ? "correct" : "wrong");
+    setTimeout(() => setFeedback(null), 2000);
   };
 
   return (
-    <div>
+    <div className="matching-box">
       <h2>Matching Box</h2>
-
-      <div style={{ marginBottom: 20 }}>
-        <select value={selectedMale} onChange={e => setSelectedMale(e.target.value)}>
-          <option value="">Mann wählen</option>
-          {males.map(m => (
-            <option key={m.name} value={m.name}>{m.name}</option>
+      <div className="selectors">
+        <select value={selectedMale} onChange={(e) => setSelectedMale(e.target.value)}>
+          <option value="">Männliche Person wählen</option>
+          {malePlayers.map((player) => (
+            <option key={player} value={player}>{player}</option>
           ))}
         </select>
 
-        <select value={selectedFemale} onChange={e => setSelectedFemale(e.target.value)}>
-          <option value="">Frau wählen</option>
-          {females.map(f => (
-            <option key={f.name} value={f.name}>{f.name}</option>
+        <select value={selectedFemale} onChange={(e) => setSelectedFemale(e.target.value)}>
+          <option value="">Weibliche Person wählen</option>
+          {femalePlayers.map((player) => (
+            <option key={player} value={player}>{player}</option>
           ))}
         </select>
-
-        <button onClick={checkMatch} style={{ marginLeft: 10 }}>Prüfen</button>
       </div>
 
-      {/* Animation */}
-      <div style={{ height: 50, marginBottom: 20 }}>
-        {animation === 'heart' && (
-          <span style={{ fontSize: 40, color: 'red', animation: 'pulse 1.5s ease' }}>❤️</span>
-        )}
-        {animation === 'broken' && (
-          <span style={{ fontSize: 40, color: 'darkred', animation: 'shake 1.5s ease' }}>💔</span>
-        )}
-      </div>
+      <button disabled={!selectedMale || !selectedFemale} onClick={handleGuess}>
+        Überprüfen
+      </button>
 
-      <h3>Versuche</h3>
+      {feedback === "correct" && <div className="heart-animation">❤️ Richtiger Match!</div>}
+      {feedback === "wrong" && <div className="heart-animation broken">💔 Kein Match</div>}
+
+      <h3>Bisherige Versuche</h3>
       <ul>
-        {attempts.map(a => (
-          <li key={a.id}>
-            {a.male} + {a.female} — {a.correct ? '✅ richtig' : '❌ falsch'}
+        {guesses.map((guess, index) => (
+          <li key={index}>
+            {guess.male} & ❤️ {guess.female} – {guess.correct ? "✅" : "❌"}
           </li>
         ))}
       </ul>
-
-      <style>{`
-        @keyframes pulse {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.3); }
-        }
-        @keyframes shake {
-          0%, 100% { transform: translateX(0); }
-          25% { transform: translateX(-5px); }
-          75% { transform: translateX(5px); }
-        }
-      `}</style>
     </div>
   );
-}
+};
+
+export default MatchingBox;
