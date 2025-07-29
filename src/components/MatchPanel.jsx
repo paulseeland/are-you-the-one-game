@@ -44,7 +44,7 @@ export default function MatchPanel({ players, onSubmit }) {
           ))}
         </select>
 
-        <button onClick={addPair}>➕ Paar hinzufügen</button>
+        <button className="neon-button primary" onClick={addPair}>➕ Paar hinzufügen</button>
       </div>
 
       <ul>
@@ -53,7 +53,7 @@ export default function MatchPanel({ players, onSubmit }) {
         ))}
       </ul>
 
-      <button onClick={handleSubmit}>💡 Anzahl korrekter Paare anzeigen</button>
+      <button className="neon-button primary" onClick={handleSubmit}>💡 Anzahl korrekter Paare anzeigen</button>
     </div>
   );
 }
