@@ -5,11 +5,11 @@ export default function ResultDisplay({ correctCount }) {
   const [lightsOn, setLightsOn] = useState(0);
 
   useEffect(() => {
-    if (typeof result === 'number') {
+    if (typeof correctCount === 'number') {
       setLightsOn(0);
       const interval = setInterval(() => {
         setLightsOn(prev => {
-          if (prev < result) return prev + 1;
+          if (prev < correctCount) return prev + 1;
           clearInterval(interval);
           return prev;
         });
