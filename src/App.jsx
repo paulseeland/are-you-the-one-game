@@ -71,7 +71,7 @@ function App() {
           <PlayerForm 
             players={players}
             addPlayer={addPlayer}
-            satrtGame={startGame}
+            startGame={startGame}
           />
         )}
 
