@@ -17,20 +17,6 @@ function App() {
     setPlayers(prev => [...prev, { name, gender }]);
   };
 
-  const startGame = () => {
-    setGameStarted(true);
-    setActiveTab('matchingNight'); // Tab wechseln nach Start
-  };
-
-  const handleMatchingSubmit = (pairs) => {
-    const matches = generateCorrectPairs(players);
-    setCorrectPairs(matches);
-
-    const correctCount = countCorrectMatches(pairs, matches);
-    setMatchingResults(correctCount);
-    setActiveTab('results');
-  };
-
   const generateCorrectPairs = (players) => {
     const males = players.filter(p => p.gender === 'male');
     const females = players.filter(p => p.gender === 'female');
@@ -44,6 +30,33 @@ function App() {
         p.male === pair.male && p.female === pair.female
       ) ? count + 1 : count;
     }, 0);
+  };
+
+  const startGame = () => {
+    const maleCount = players.filter(p => p.gender === 'male').length;
+    const femaleCount = players.filter(p => p.gender === 'female').length;
+
+    if (maleCount === 0 || femaleCount === 0) {
+      alert('Bitte mindestens einen Mann und eine Frau hinzufügen.');
+      return;
+    }
+
+    if (maleCount !== femaleCount) {
+      alert('Bitte gleiche Anzahl Männer und Frauen hinzufügen.');
+      return;
+    }
+
+    const initialPairs = generateCorrectPairs(players);
+    setCorrectPairs(initialPairs); // Nur hier einmal generieren und speichern
+    setGameStarted(true);
+    setActiveTab('matchingNight');
+  };
+
+  const handleMatchingSubmit = (pairs) => {
+    // Nutze den bereits generierten correctPairs, nicht neu generieren!
+    const correctCount = countCorrectMatches(pairs, correctPairs);
+    setMatchingResults(correctCount);
+    setActiveTab('results');
   };
 
   const addGuess = (guessEntry) => {
@@ -84,7 +97,7 @@ function App() {
             matches={correctPairs}
             guesses={guesses}
             addGuess={addGuess}
-            />
+          />
         )}
       </div>
     </div>
