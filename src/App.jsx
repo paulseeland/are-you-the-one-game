@@ -55,8 +55,9 @@ function App() {
       <h1>🌴 Are You The One? Das Spiel 🌴</h1>
 
       <Tabs
-        activeTab={activeTab}
-        onTabChange={setActiveTab}
+        current={activeTab}
+        setCurrent={setActiveTab}
+        available={players.length >= 4}
         tabs={[
           { key: 'playerForm', label: 'Spieler' },
           { key: 'matchingNight', label: 'Matching Night' },
