@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './PlayerForm.css';
+import './styles.css';
 
 export default function PlayerForm({ players, addPlayer, setPlayers, startGame }) {
   const [name, setName] = useState('');
@@ -47,7 +48,7 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
 
   return (
     <div>
-      <h2>Teilnehmer hinzufügen</h2>
+      <h2> className="text-center" >Teilnehmer hinzufügen< </h2>
       <div className="form-row-vertical">
         <div className="gender-toggle">
           <button
@@ -100,4 +101,5 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
     </div>
   );
 }
+
 
