@@ -48,28 +48,31 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
   return (
     <div>
       <h2>Teilnehmer hinzufügen</h2>
-          <div className="form-row-vertical">
-            <div className="gender-toggle">
+      <div className="form-row-vertical">
+        <div className="gender-toggle">
           <button
             type="button"
             className={gender === 'male' ? 'gender-button selected' : 'gender-button'}
             onClick={() => setGender('male')}
-            >♂️ Mann </button>
+          >
+            ♂️ Mann
+          </button>
           <button
             type="button"
             className={gender === 'female' ? 'gender-button selected' : 'gender-button'}
             onClick={() => setGender('female')}
-            >♀️ Frau </button>
-            </div>
-            
-            <input
-            type="text"
-            placeholder="Name"
-            value={name}
-            onChange={e => setName(e.target.value)}
-            />
-        
-    </div>
+          >
+            ♀️ Frau
+          </button>
+        </div>
+
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={e => setName(e.target.value)}
+        />
+
         <button onClick={handleAddOrUpdate} className="neon-button primary" >
           {editingIndex !== null ? '💾 Speichern' : '➕ Hinzufügen'}
         </button>
@@ -97,12 +100,3 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
