@@ -1,4 +1,4 @@
-vimport React, { useState } from 'react';
+import React, { useState } from 'react';
 import './PlayerForm.css';
 
 export default function PlayerForm({ players, addPlayer, setPlayers, startGame }) {
@@ -100,6 +100,7 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
     </div>
   );
 }
+
 
 
 
