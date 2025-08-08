@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './PlayerForm.css'; // Du wirst gleich CSS dafür brauchen
+import './PlayerForm.css';
 
-export default function PlayerForm({ players, addPlayer, startGame }) {
+export default function PlayerForm({ players, addPlayer, setPlayers, startGame }) {
   const [name, setName] = useState('');
   const [gender, setGender] = useState('male');
   const [editingIndex, setEditingIndex] = useState(null);
@@ -10,36 +10,40 @@ export default function PlayerForm({ players, addPlayer, startGame }) {
     if (!name.trim()) return;
 
     if (editingIndex !== null) {
-      // Update bestehender Teilnehmer
-      const updated = [...players];
-      updated[editingIndex] = { name: name.trim(), gender };
-      setPlayers(updated); // ACHTUNG: Hier musst du später noch `setPlayers` vom App-Component übergeben!
+      // Bearbeiten-Modus: Spieler aktualisieren
+      const updatedPlayers = [...players];
+      updatedPlayers[editingIndex] = { name: name.trim(), gender };
+      setPlayers(updatedPlayers);
       setEditingIndex(null);
     } else {
+      // Neuen Spieler hinzufügen
       addPlayer(name.trim(), gender);
     }
 
+    // Felder leeren
     setName('');
+    setGender('male');
   };
 
   const handleEdit = (index) => {
-    setName(players[index].name);
-    setGender(players[index].gender);
+    const player = players[index];
+    setName(player.name);
+    setGender(player.gender);
     setEditingIndex(index);
   };
 
   const handleDelete = (index) => {
     const updated = players.filter((_, i) => i !== index);
-    setPlayers(updated); // ACHTUNG: Auch hier muss `setPlayers` vom App-Component kommen
+    setPlayers(updated);
     if (editingIndex === index) {
       setName('');
+      setGender('male');
       setEditingIndex(null);
     }
   };
 
   const ready =
-    players.filter(p => p.gender === 'male').length ===
-      players.filter(p => p.gender === 'female').length &&
+    players.filter(p => p.gender === 'male').length === players.filter(p => p.gender === 'female').length &&
     players.length >= 4;
 
   return (
@@ -57,7 +61,7 @@ export default function PlayerForm({ players, addPlayer, startGame }) {
           <option value="female">Frau</option>
         </select>
         <button onClick={handleAddOrUpdate}>
-          {editingIndex !== null ? '✏️ Speichern' : '➕ Hinzufügen'}
+          {editingIndex !== null ? '💾 Speichern' : '➕ Hinzufügen'}
         </button>
       </div>
 
