@@ -60,7 +60,7 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
           <option value="male">Mann</option>
           <option value="female">Frau</option>
         </select>
-        <button onClick={handleAddOrUpdate} className="action-button" >
+        <button onClick={handleAddOrUpdate} className="neon-button primary" >
           {editingIndex !== null ? '💾 Speichern' : '➕ Hinzufügen'}
         </button>
       </div>
@@ -87,4 +87,5 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
     </div>
   );
 }
+
 
