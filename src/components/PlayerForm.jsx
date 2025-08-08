@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './PlayerForm.css';
-import './styles.css';
 
 export default function PlayerForm({ players, addPlayer, setPlayers, startGame }) {
   const [name, setName] = useState('');
@@ -101,6 +100,7 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
     </div>
   );
 }
+
 
 
 
