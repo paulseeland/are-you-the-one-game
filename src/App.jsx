@@ -94,6 +94,7 @@ function App() {
             players={players}
             addPlayer={addPlayer}
             startGame={startGame}
+            setPlayers={setPlayers}
           />
         )}
 
@@ -120,3 +121,4 @@ function App() {
 }
 
 export default App;
+
