@@ -76,7 +76,7 @@ function App() {
   };
   
   return (
-    <div className="App">
+    <div className="text-center">
       <h1>🌴 Are You The One? 🌴</h1>
 
       {gameStarted && (
@@ -124,6 +124,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
