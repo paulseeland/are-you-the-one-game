@@ -1,30 +1,39 @@
 .tabs-vertical {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px 0;
+  overflow-x: auto;
   width: 100%;
-  max-width: 200px;
-  margin-bottom: 20px;
+  max-width: 400px;
+  margin-bottom: 0 auto;
 }
 
 .tab-button {
+  flex: 1 1 auto;
   padding: 12px 20px;
   background: #333;
   color: #fff;
+  border-bottom: 3px solid transparent;
   border-radius: 999px;
   border: none;
   cursor: pointer;
   box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
-  text-align: left;
+  text-align: center;
+  font-weight: 600;
 }
 
 .tab-button.active {
   background: #00ffff;
   color: #000;
   box-shadow: 0 0 15px #00ffff;
+  border-color: #c43535;
+  font-weight: 700;
 }
 
 .tab-button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
