@@ -55,14 +55,14 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
             className={gender === 'male' ? 'gender-button selected' : 'gender-button'}
             onClick={() => setGender('male')}
           >
-            ♂️ Mann
+            ♂︎ Mann
           </button>
           <button
             type="button"
             className={gender === 'female' ? 'gender-button selected' : 'gender-button'}
             onClick={() => setGender('female')}
           >
-            ♀️ Frau
+            ♀︎ Frau
           </button>
         </div>
 
@@ -83,7 +83,7 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
           <div className="player-card" key={index}>
             <div className="player-info">
               <span className="player-name">{p.name}</span>
-              <span className="player-gender">{p.gender === 'male' ? '♂️' : '♀️'}</span>
+              <span className="player-gender">{p.gender === 'male' ? '♂︎' : '♀︎'}</span>
             </div>
             <div className="player-actions">
               <button onClick={() => handleEdit(index)} title="Bearbeiten">✏️</button>
@@ -100,6 +100,7 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
     </div>
   );
 }
+
 
 
 
