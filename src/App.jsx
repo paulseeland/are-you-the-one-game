@@ -52,7 +52,10 @@ function App() {
     setActiveTab('matchingNight');
   };
 
+  const [submittedPairs, setSubmittedPairs] = useState ([]);
+  
   const handleMatchingSubmit = (pairs) => {
+    setSubmittedParis(pairs); // Gespeicherte Paare übergeben
     // Nutze den bereits generierten correctPairs, nicht neu generieren!
     const correctCount = countCorrectMatches(pairs, correctPairs);
     setMatchingResults(correctCount);
@@ -103,7 +106,7 @@ function App() {
         )}
 
         {activeTab === 'results' && (
-          <ResultDisplay correctCount={matchingResults} />
+          <ResultDisplay correctCount={matchingResults} pairs={submittedPairs} />
         )}
 
         {activeTab === 'matchingBox' && (
@@ -121,6 +124,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
