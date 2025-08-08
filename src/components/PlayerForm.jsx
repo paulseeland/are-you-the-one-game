@@ -64,7 +64,7 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
           >
             ♀️ Frau
           </button>
-              
+      </div>        
           <input
           type="text"
           placeholder="Name"
@@ -100,6 +100,7 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
     </div>
   );
 }
+
 
 
 
