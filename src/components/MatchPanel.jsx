@@ -59,14 +59,15 @@ export default function MatchPanel({ players, onSubmit, setCurrentTab }) {
         <button className="neon-button primary" onClick={addPair}>➕ Paar hinzufügen</button>
       </div>
 
-      <ul>
-        {pairs.map((p, i) => (
-          <li key={i}>
-            {p.male} ❤️ {p.female}
-            <button onClick={() => removePair(i)} style={{ marginLeft: '0.5rem' }}>🗑️</button>
-          </li>
-        ))}
-      </ul>
+      <div className="pair-grid">
+  {pairs.map((p, i) => (
+    <div key={i} className="pair-card">
+      <span>{p.male} ❤️ {p.female}</span>
+      <button onClick={() => removePair(i)} title="Paar entfernen">🗑️</button>
+    </div>
+  ))}
+</div>
+
 
       <button className="neon-button primary" onClick={handleSubmit}>
         💡 Anzahl korrekter Paare anzeigen
@@ -74,3 +75,4 @@ export default function MatchPanel({ players, onSubmit, setCurrentTab }) {
     </div>
   );
 }
+
