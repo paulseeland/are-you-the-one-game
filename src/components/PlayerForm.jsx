@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function PlayerForm({ players, addPlayer, startGame }) {
+export default function PlayerForm({ players, addPlayer, startGame, setPlayers }) {
   const [name, setName] = useState('');
   const [gender, setGender] = useState('male');
 
@@ -39,3 +39,4 @@ export default function PlayerForm({ players, addPlayer, startGame }) {
     </div>
   );
 }
+
