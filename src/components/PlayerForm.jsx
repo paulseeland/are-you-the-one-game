@@ -3,7 +3,7 @@ import './PlayerForm.css';
 
 export default function PlayerForm({ players, addPlayer, setPlayers, startGame }) {
   const [name, setName] = useState('');
-  const [gender, setGender] = useState('male');
+  const [gender, setGender] = useState('');
   const [editingIndex, setEditingIndex] = useState(null);
 
   const handleAddOrUpdate = () => {
@@ -56,10 +56,22 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
           value={name}
           onChange={e => setName(e.target.value)}
         />
-        <select value={gender} onChange={e => setGender(e.target.value)}>
-          <option value="male">Mann</option>
-          <option value="female">Frau</option>
-        </select>
+        <div className="gender-toggle">
+      <button
+        type="button"
+        className={gender === 'male' ? 'gender-button selected' : 'gender-button'}
+        onClick={() => setGender('male')}
+      >
+        ♂️ Mann
+      </button>
+      <button
+        type="button"
+        className={gender === 'female' ? 'gender-button selected' : 'gender-button'}
+        onClick={() => setGender('female')}
+      >
+        ♀️ Frau
+      </button>
+    </div>
         <button onClick={handleAddOrUpdate} className="neon-button primary" >
           {editingIndex !== null ? '💾 Speichern' : '➕ Hinzufügen'}
         </button>
@@ -87,5 +99,6 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
     </div>
   );
 }
+
 
 
