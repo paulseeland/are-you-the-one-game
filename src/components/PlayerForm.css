@@ -11,13 +11,13 @@
 }
 
 .player-card {
-  background: #f0f0f0;
+  background: #4b0082;
   border-radius: 8px;
   padding: 0.75rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
 }
 
 .player-info {
@@ -40,3 +40,4 @@
   cursor: pointer;
   font-size: 1.2rem;
 }
+
