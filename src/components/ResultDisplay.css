@@ -30,3 +30,20 @@
   margin-top: 20px;
   color: #ffddff;
 }
+
+.pairs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.pair-card {
+  background: #4b0082;  /* dunkles Lila z.B. */
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(75, 0, 130, 0.7);
+  font-weight: bold;
+  text-align: center;
+}
