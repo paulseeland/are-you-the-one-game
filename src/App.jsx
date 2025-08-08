@@ -77,8 +77,8 @@ function App() {
       <h1>🌴 Are You The One? Das Spiel 🌴</h1>
 
       {gameStarted && (
-        <button onClick={restartGame} style={{ marginBottom: '1rem' }}>
-          Spiel neu starten
+        <button onClick={restartGame} className="action.button primary">
+          🔁 Spiel neu starten
         </button>
       )}
       
@@ -121,4 +121,5 @@ function App() {
 }
 
 export default App;
+
 
