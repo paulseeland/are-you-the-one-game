@@ -1,18 +1,18 @@
 .tabs-vertical {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: center;       /* Buttons horizontal zentrieren */
   gap: 15px;
   padding: 10px 0;
-  overflow-x: auto;
   width: 100%;
   max-width: 400px;
-  margin-bottom: 0 auto;
+  margin: 0 auto;            /* Container selbst zentrieren */
 }
 
 .tab-button {
   flex: 1 1 auto;
+  width: 100%;               /* nimmt volle Breite des Containers */
+  max-width: 300px;          /* maximale Breite für große Screens */
   padding: 12px 20px;
   background: #333;
   color: #fff;
@@ -37,5 +37,3 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
-
-
