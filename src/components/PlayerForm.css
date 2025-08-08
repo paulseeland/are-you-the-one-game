@@ -1,0 +1,42 @@
+.form-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.player-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.player-card {
+  background: #f0f0f0;
+  border-radius: 8px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+.player-info {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.player-name {
+  font-weight: bold;
+}
+
+.player-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
