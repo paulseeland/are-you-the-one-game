@@ -109,5 +109,12 @@
   box-shadow: 0 0 8px #00ffff;
 }
 
+.center {
+  display: block;
+  width: 90vw;
+  max-width: 300px;
+  margin: 1rem auto;
+  text-align: center;
+}
 
 
