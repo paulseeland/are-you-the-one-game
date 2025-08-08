@@ -34,6 +34,15 @@ export default function ResultDisplay({ correctCount }) {
           Es gibt <strong>{correctCount}</strong> korrekte Paar{correctCount === 1 ? '' : 'e'}!
         </p>
       )}
+
+      <h3>Alle gewählten Paare:</h3>
+      <div className="pairs-grid">
+        {pairs.map((pair, i) => (
+          <div key={i} className="pair-card">
+            <span>{pair.male} ❤️ {pair.female}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
