@@ -55,7 +55,7 @@ function App() {
   const [submittedPairs, setSubmittedPairs] = useState ([]);
   
   const handleMatchingSubmit = (pairs) => {
-    setSubmittedParis(pairs); // Gespeicherte Paare übergeben
+    setSubmittedPairs(pairs); // Gespeicherte Paare übergeben
     // Nutze den bereits generierten correctPairs, nicht neu generieren!
     const correctCount = countCorrectMatches(pairs, correctPairs);
     setMatchingResults(correctCount);
@@ -124,6 +124,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
