@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './ResultDisplay.css';
 
-export default function ResultDisplay({ correctCount }) {
+export default function ResultDisplay({ correctCount, pairs }) {
   const [lightsOn, setLightsOn] = useState(0);
 
   useEffect(() => {
@@ -46,3 +46,4 @@ export default function ResultDisplay({ correctCount }) {
     </div>
   );
 }
+
