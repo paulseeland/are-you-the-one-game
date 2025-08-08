@@ -3,7 +3,7 @@ import './PlayerForm.css';
 
 export default function PlayerForm({ players, addPlayer, setPlayers, startGame }) {
   const [name, setName] = useState('');
-  const [gender, setGender] = useState('');
+  const [gender, setGender] = useState('male');
   const [editingIndex, setEditingIndex] = useState(null);
 
   const handleAddOrUpdate = () => {
@@ -19,10 +19,9 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
       // Neuen Spieler hinzufügen
       addPlayer(name.trim(), gender);
     }
-
     // Felder leeren
     setName('');
-    setGender('male');
+    // setGender('male');
   };
 
   const handleEdit = (index) => {
@@ -37,7 +36,7 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
     setPlayers(updated);
     if (editingIndex === index) {
       setName('');
-      setGender('male');
+      //setGender('male');
       setEditingIndex(null);
     }
   };
@@ -99,6 +98,7 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
     </div>
   );
 }
+
 
 
 
