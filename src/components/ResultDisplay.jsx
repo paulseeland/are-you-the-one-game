@@ -4,18 +4,29 @@ import './ResultDisplay.css';
 export default function ResultDisplay({ correctCount, pairs }) {
   const [lightsOn, setLightsOn] = useState(0);
 
-  useEffect(() => {
-    if (typeof correctCount === 'number') {
-      setLightsOn(0);
-      const interval = setInterval(() => {
-        setLightsOn(prev => {
-          if (prev < correctCount) return prev + 1;
-          clearInterval(interval);
-          return prev;
-        });
-      }, 500);
+useEffect(() => {
+  if (typeof correctCount === 'number') {
+    setLightsOn(0);
+
+    const timeouts = [];
+
+    for (let i = 0; i < correctCount; i++) {
+      const delay = Math.random() * 6000 + 1000; // 1000–7000 ms
+
+      const timeout = setTimeout(() => {
+        setLightsOn(prev => prev + 1);
+      }, delay);
+
+      timeouts.push(timeout);
     }
-  }, [correctCount]);
+
+    // Optional: Clean-up falls Komponente entladen wird
+    return () => {
+      timeouts.forEach(clearTimeout);
+    };
+  }
+}, [correctCount]);
+
 
   if (correctCount === null) {
     return <p>Bitte Matching Night durchführen, um Ergebnisse zu sehen.</p>;
@@ -46,4 +57,5 @@ export default function ResultDisplay({ correctCount, pairs }) {
     </div>
   );
 }
+
 
