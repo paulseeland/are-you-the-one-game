@@ -77,7 +77,7 @@ function App() {
   
   return (
     <div className="App">
-      <h1>🌴 Are You The One? Das Spiel 🌴</h1>
+      <h1>🌴 Are You The One? 🌴</h1>
 
       {gameStarted && (
         <button onClick={restartGame} className="action.button">
@@ -124,6 +124,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
