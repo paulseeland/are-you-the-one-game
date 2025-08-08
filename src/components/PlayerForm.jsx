@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+vimport React, { useState } from 'react';
 import './PlayerForm.css';
 
 export default function PlayerForm({ players, addPlayer, setPlayers, startGame }) {
@@ -48,28 +48,30 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
   return (
     <div>
       <h2>Teilnehmer hinzufügen</h2>
-      <div className="form-row">
-        <input
+          <div className="form-row-vertical">
+            <div className="gender-toggle">
+          <button
+            type="button"
+            className={gender === 'male' ? 'gender-button selected' : 'gender-button'}
+            onClick={() => setGender('male')}
+          >
+            ♂️ Mann
+          </button>
+          <button
+            type="button"
+            className={gender === 'female' ? 'gender-button selected' : 'gender-button'}
+            onClick={() => setGender('female')}
+          >
+            ♀️ Frau
+          </button>
+              
+          <input
           type="text"
           placeholder="Name"
           value={name}
           onChange={e => setName(e.target.value)}
         />
-        <div className="gender-toggle">
-      <button
-        type="button"
-        className={gender === 'male' ? 'gender-button selected' : 'gender-button'}
-        onClick={() => setGender('male')}
-      >
-        ♂️ Mann
-      </button>
-      <button
-        type="button"
-        className={gender === 'female' ? 'gender-button selected' : 'gender-button'}
-        onClick={() => setGender('female')}
-      >
-        ♀️ Frau
-      </button>
+        
     </div>
         <button onClick={handleAddOrUpdate} className="neon-button primary" >
           {editingIndex !== null ? '💾 Speichern' : '➕ Hinzufügen'}
@@ -98,6 +100,7 @@ export default function PlayerForm({ players, addPlayer, setPlayers, startGame }
     </div>
   );
 }
+
 
 
 
